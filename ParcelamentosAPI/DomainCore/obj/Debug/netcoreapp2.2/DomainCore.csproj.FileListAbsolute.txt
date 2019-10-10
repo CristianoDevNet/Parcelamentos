@@ -1,0 +1,8 @@
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.deps.json
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.dll
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.pdb
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.csprojAssemblyReference.cache
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.AssemblyInfoInputs.cache
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.AssemblyInfo.cs
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.dll
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.pdb

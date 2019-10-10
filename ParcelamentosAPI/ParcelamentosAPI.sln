@@ -15,13 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1FA9F394-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{55A8DC89-4BF9-47ED-BC66-285E18782F25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationCore", "ApplicationCore\ApplicationCore.csproj", "{38D13638-A51F-4E41-B746-5F961FA2139E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCore", "ApplicationCore\ApplicationCore.csproj", "{38D13638-A51F-4E41-B746-5F961FA2139E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{134D1179-41F7-4F02-8C8C-9012C26806BE} = {134D1179-41F7-4F02-8C8C-9012C26806BE}
+		{97DC7CFF-F787-4124-BF4A-1A7629E859BE} = {97DC7CFF-F787-4124-BF4A-1A7629E859BE}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainCore", "DomainCore\DomainCore.csproj", "{97DC7CFF-F787-4124-BF4A-1A7629E859BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainCore", "DomainCore\DomainCore.csproj", "{97DC7CFF-F787-4124-BF4A-1A7629E859BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfraCore", "InfraCore\InfraCore.csproj", "{D726024C-4AE2-4E2D-914D-A67726ABF4FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfraCore", "InfraCore\InfraCore.csproj", "{D726024C-4AE2-4E2D-914D-A67726ABF4FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCore", "ServiceCore\ServiceCore.csproj", "{134D1179-41F7-4F02-8C8C-9012C26806BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceCore", "ServiceCore\ServiceCore.csproj", "{134D1179-41F7-4F02-8C8C-9012C26806BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

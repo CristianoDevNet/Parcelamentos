@@ -1,0 +1,11 @@
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.csprojAssemblyReference.cache
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.AssemblyInfoInputs.cache
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.AssemblyInfo.cs
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.deps.json
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.dll
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\DomainCore.dll
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\DomainCore.pdb
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.csproj.CopyComplete
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.pdb
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.dll
+D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.pdb

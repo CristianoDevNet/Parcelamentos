@@ -1,45 +1,66 @@
 ﻿using DomainCore.Entities;
 using DomainCore.Interfaces;
-using InfraCore.Context;
+using InfraCore.Context.Commands;
+using InfraCore.Context.Queries;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace InfraCore.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly AppDbContext context = new AppDbContext();
+        private readonly CommandsDbContext contextCommands = new CommandsDbContext();
+
+        private readonly QueriesDbContext queriesCommands = new QueriesDbContext();
 
         public async Task AddAsync(T obj)
         {
-            await context.Set<T>().AddAsync(obj);
-            await context.SaveChangesAsync();
+            try
+            {
+                using (TransactionScope ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await contextCommands.Set<T>().AddAsync(obj);
+
+                    await contextCommands.SaveChangesAsync();
+
+                    await queriesCommands.Set<T>().AddAsync(obj);
+
+                    await queriesCommands.SaveChangesAsync();
+
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task RemoveAsync(int id)
         {
-            context.Set<T>().Remove(await SelectByIdAsync(id));
-            await context.SaveChangesAsync();
+            contextCommands.Set<T>().Remove(await SelectByIdAsync(id));
+
+            await contextCommands.SaveChangesAsync();
         }
 
         public async Task<T> SelectByIdAsync(int id)
         {
-            return await context.Set<T>().FindAsync(id);
+            return await queriesCommands.Set<T>().FindAsync(id);
         }
 
         public async Task<IList<T>> SelectAllAsync()
         {
-            return await context.Set<T>().ToListAsync();
+            return await queriesCommands.Set<T>().ToListAsync();
         }
 
         public async Task UpdateAsync(T obj)
         {
-            context.Entry(obj).State = EntityState.Modified;
-            await context.SaveChangesAsync();
+            contextCommands.Entry(obj).State = EntityState.Modified;
+
+            await contextCommands.SaveChangesAsync();
         }
     }
 }

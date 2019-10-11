@@ -7,5 +7,7 @@ namespace DomainCore.Entities
     public class Produto : BaseEntity
     {
         public string Nome { get; set; }
+
+        public ICollection<Orcamento> Orcamentos { get; set; }
     }
 }

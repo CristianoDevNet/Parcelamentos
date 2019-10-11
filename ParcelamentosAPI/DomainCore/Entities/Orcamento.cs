@@ -11,5 +11,9 @@ namespace DomainCore.Entities
         public decimal ValorBase { get; set; }
 
         public decimal JurosMes { get; set; }
+
+        public Produto Produto { get; set; }
+
+        public ICollection<Parcela> Parcelas { get; set; }
     }
 }

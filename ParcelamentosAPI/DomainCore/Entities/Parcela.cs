@@ -11,5 +11,7 @@ namespace DomainCore.Entities
         public decimal Valor { get; set; }
 
         public DateTime Data { get; set; }
+
+        public Orcamento Orcamento { get; set; }
     }
 }

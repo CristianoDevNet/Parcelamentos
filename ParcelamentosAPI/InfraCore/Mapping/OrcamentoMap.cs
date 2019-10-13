@@ -26,6 +26,10 @@ namespace InfraCore.Mapping
             builder.Property(c => c.JurosMes)
             .IsRequired()
             .HasColumnName("JurosMes");
+
+            builder.Property(c => c.QtdParcelas)
+            .IsRequired()
+            .HasColumnName("QtdParcelas");
         }
     }
 }

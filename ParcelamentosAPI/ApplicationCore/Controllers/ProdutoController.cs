@@ -30,26 +30,26 @@ namespace ApplicationCore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
-        {
-            try
-            {
-                return Ok(await service.GetByIdAsync(id));
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(ex);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
-
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> Get(int id)
+        //{
+        //    try
+        //    {
+        //        return Ok(await service.GetByIdAsync(id));
+        //    }
+        //    catch (ArgumentException ex)
+        //    {
+        //        return NotFound(ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex);
+        //    }
+        //}
+        
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Produto produto)
-        {
+        {            
             try
             {
                 await service.PostAsync<ProdutoValidator>(produto);
@@ -66,24 +66,24 @@ namespace ApplicationCore.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Produto produto)
-        {
-            try
-            {
-                await service.PutAsync<ProdutoValidator>(produto);
+        //[HttpPut]
+        //public async Task<IActionResult> Put([FromBody] Produto produto)
+        //{
+        //    try
+        //    {
+        //        await service.PutAsync<ProdutoValidator>(produto);
 
-                return Ok(produto);
-            }
-            catch (ArgumentNullException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        //        return Ok(produto);
+        //    }
+        //    catch (ArgumentNullException ex)
+        //    {
+        //        return NotFound(ex.Message);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

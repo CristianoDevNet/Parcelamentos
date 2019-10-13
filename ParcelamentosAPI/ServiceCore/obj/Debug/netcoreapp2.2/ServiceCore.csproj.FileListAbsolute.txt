@@ -11,3 +11,16 @@ D:\cristianofranco\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcorea
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.csproj.CopyComplete
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.dll
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\ServiceCore.deps.json
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\ServiceCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\ServiceCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\DomainCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\InfraCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\DomainCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\bin\Debug\netcoreapp2.2\InfraCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.csprojAssemblyReference.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.AssemblyInfoInputs.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.AssemblyInfo.cs
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.csproj.CopyComplete
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\ServiceCore\obj\Debug\netcoreapp2.2\ServiceCore.pdb

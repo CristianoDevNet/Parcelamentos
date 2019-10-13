@@ -6,7 +6,6 @@ using DomainCore.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceCore.Services;
-using ServiceCore.Validators;
 
 namespace ApplicationCore.Controllers
 {
@@ -16,50 +15,18 @@ namespace ApplicationCore.Controllers
     {
         private BaseService<Parcela> service = new BaseService<Parcela>();
 
-        // GET: api/Parcela
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET: api/Parcela/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Parcela
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Parcela parcela)
+        [HttpGet("orcamento/{id}")] //Lista todas as parcelas de um determinado orçamento
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                //await service.PostAsync<ParcelaValidator>(parcela);
-
-                return Ok(parcela.Id);
-            }
-            catch (ArgumentNullException ex)
-            {
-                return NotFound(ex.Message);
+                return Ok(await service.GetByConditionAsync(parcela => parcela.OrcamentoId.Equals(id)));
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex);
             }
-        }
-
-        // PUT: api/Parcela/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

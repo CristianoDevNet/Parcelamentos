@@ -14,6 +14,8 @@ namespace ServiceCore.Validators
 
         private readonly string semjurosMes = "É necessário informar o Juros/mês";
 
+        private readonly string qtdParcelasVazias = "É necessário informar a quantidade de parcelas.";
+
         public OrcamentoValidator()
         {
             RuleFor(c => c)
@@ -34,6 +36,10 @@ namespace ServiceCore.Validators
             RuleFor(c => c.JurosMes)
                 .NotEmpty().WithMessage(semjurosMes)
                 .NotNull().WithMessage(semjurosMes);
+
+            RuleFor(c => c.QtdParcelas)
+                .NotEmpty().WithMessage(qtdParcelasVazias)
+                .NotNull().WithMessage(qtdParcelasVazias);
         }
     }
 }

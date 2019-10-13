@@ -18,7 +18,7 @@ namespace InfraCore.Context.Commands
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("Server=csd0201wnt47f;Initial Catalog=teste;User Id=teste;Password=t3st3;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-DJAK16E;Initial Catalog=Commands;integrated security=True;multipleactiveresultsets=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

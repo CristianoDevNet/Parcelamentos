@@ -6,3 +6,11 @@ D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreap
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.AssemblyInfo.cs
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.dll
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.deps.json
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\bin\Debug\netcoreapp2.2\DomainCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.csprojAssemblyReference.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.AssemblyInfoInputs.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.AssemblyInfo.cs
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\DomainCore\obj\Debug\netcoreapp2.2\DomainCore.pdb

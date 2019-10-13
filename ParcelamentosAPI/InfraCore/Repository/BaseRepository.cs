@@ -5,6 +5,8 @@ using InfraCore.Context.Queries;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Transactions;
 
@@ -14,53 +16,121 @@ namespace InfraCore.Repository
     {
         private readonly CommandsDbContext contextCommands = new CommandsDbContext();
 
-        private readonly QueriesDbContext queriesCommands = new QueriesDbContext();
+        private readonly QueriesDbContext contextQueries = new QueriesDbContext();
+
+        private int retorno;
+
+        private readonly string erroSalvarBaseReplicacao = "Não foi possível salvar na base de replicação";
+
+        private readonly string erroRemoverBaseReplicacao = "Não foi possível remover da base de replicação";
+
+        private readonly string erroAtualizarBaseReplicacao = "Não foi possível atualizar a base de replicação";
 
         public async Task AddAsync(T obj)
         {
             try
             {
-                using (TransactionScope ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                await contextCommands.Set<T>().AddAsync(obj);
+
+                retorno = await contextCommands.SaveChangesAsync();
+
+                if(retorno > 0)
                 {
-                    await contextCommands.Set<T>().AddAsync(obj);
+                    await contextQueries.Set<T>().AddAsync(obj);
 
-                    await contextCommands.SaveChangesAsync();
+                    retorno = await contextQueries.SaveChangesAsync();
 
-                    await queriesCommands.Set<T>().AddAsync(obj);
+                    if(retorno < 1)
+                    {
+                        await RemoveAsync(obj.Id);
 
-                    await queriesCommands.SaveChangesAsync();
-
-                    ts.Complete();
+                        throw new Exception(erroSalvarBaseReplicacao);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         public async Task RemoveAsync(int id)
         {
-            contextCommands.Set<T>().Remove(await SelectByIdAsync(id));
+            try
+            {
+                contextCommands.Set<T>().Remove(await SelectByIdAsync(id));
 
-            await contextCommands.SaveChangesAsync();
+                retorno = await contextCommands.SaveChangesAsync();
+
+                if (retorno > 0)
+                {
+                    contextQueries.Set<T>().Remove(await SelectByIdAsync(id));
+
+                    retorno = await contextQueries.SaveChangesAsync();
+
+                    if (retorno < 1)
+                    {
+                        throw new Exception(erroRemoverBaseReplicacao);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<T> SelectByIdAsync(int id)
         {
-            return await queriesCommands.Set<T>().FindAsync(id);
+            return await contextQueries.Set<T>().FindAsync(id);
         }
 
         public async Task<IList<T>> SelectAllAsync()
         {
-            return await queriesCommands.Set<T>().ToListAsync();
+            return await contextQueries.Set<T>().ToListAsync();
         }
 
-        public async Task UpdateAsync(T obj)
-        {
-            contextCommands.Entry(obj).State = EntityState.Modified;
+        //public async Task UpdateAsync(T obj)
+        //{
+        //    throw new NotImplementedException();
 
-            await contextCommands.SaveChangesAsync();
+        //    //try
+        //    //{
+        //    //    contextCommands.Entry(obj).State = EntityState.Modified;
+
+        //    //    retorno = await contextCommands.SaveChangesAsync();
+
+        //    //    if (retorno > 0)
+        //    //    {
+        //    //        contextQueries.Entry(obj).State = EntityState.Modified;
+
+        //    //        retorno = await contextQueries.SaveChangesAsync();
+
+        //    //        if (retorno < 1)
+        //    //        {
+        //    //            throw new Exception(erroAtualizarBaseReplicacao);
+        //    //        }
+        //    //    }
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    throw ex;
+        //    //}
+        //}
+
+        //public async Task<IList<T>> GetByCondition(Expression<Func<T, bool>> expression)
+        //{
+        //    return await contextQueries.Set<T>().Where(expression).AsNoTracking().ToListAsync();
+        //}
+        
+        public Task UpdateAsync(T obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<T> GetByCondition(Expression<Func<T, bool>> expression)
+        {
+            return contextQueries.Set<T>().Where(expression).AsNoTracking();
         }
     }
 }

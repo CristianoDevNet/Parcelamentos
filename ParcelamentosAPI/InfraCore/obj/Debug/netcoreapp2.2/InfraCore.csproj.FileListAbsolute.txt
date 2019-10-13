@@ -9,3 +9,14 @@ D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.csproj.CopyComplete
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.dll
 D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.deps.json
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\InfraCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\DomainCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\bin\Debug\netcoreapp2.2\DomainCore.pdb
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.csprojAssemblyReference.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.AssemblyInfoInputs.cache
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.AssemblyInfo.cs
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.csproj.CopyComplete
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.dll
+C:\Projetos\Parcelamentos\ParcelamentosAPI\InfraCore\obj\Debug\netcoreapp2.2\InfraCore.pdb

@@ -12,6 +12,8 @@ namespace DomainCore.Entities
 
         public decimal JurosMes { get; set; }
 
+        public int QtdParcelas { get; set; }
+
         public Produto Produto { get; set; }
 
         public ICollection<Parcela> Parcelas { get; set; }

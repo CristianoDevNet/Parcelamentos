@@ -3,6 +3,7 @@ using InfraCore.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace InfraCore.Context.Queries
@@ -18,7 +19,7 @@ namespace InfraCore.Context.Queries
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlite(@"Data Source=D:\cristianofranco\Parcelamentos\ParcelamentosAPI\InfraCore\ParcelasDB.db");
+                optionsBuilder.UseSqlite($"Data Source=Queries.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

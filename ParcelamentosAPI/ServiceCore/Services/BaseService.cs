@@ -2,8 +2,12 @@
 using DomainCore.Interfaces;
 using FluentValidation;
 using InfraCore.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +50,11 @@ namespace ServiceCore.Services
 
         public async Task<T> PostAsync<V>(T obj) where V : AbstractValidator<T>
         {
+            if(obj.GetType() == typeof(Produto))
+            {
+                obj = GerarParcelas(obj as Produto);
+            }
+
             Validate(obj, Activator.CreateInstance<V>());
 
             await repository.AddAsync(obj);
@@ -55,11 +64,45 @@ namespace ServiceCore.Services
 
         public async Task<T> PutAsync<V>(T obj) where V : AbstractValidator<T>
         {
-            Validate(obj, Activator.CreateInstance<V>());
+            throw new NotImplementedException();
 
-            await repository.UpdateAsync(obj);
+            //Validate(obj, Activator.CreateInstance<V>());
 
-            return obj;
+            //await repository.UpdateAsync(obj);
+
+            //return obj;
         }
+
+        private T GerarParcelas(Produto produto)
+        {
+            Orcamento orcamento = produto.Orcamentos.FirstOrDefault();
+
+            decimal valorParcelaComJuros = (decimal)Math.Round(Financial.Pmt((double)(orcamento.JurosMes / 100), orcamento.QtdParcelas, (double)orcamento.ValorBase), 2);
+
+            ICollection<Parcela> parcelas = new List<Parcela>();
+
+            for (int i = 1; i <= orcamento.QtdParcelas; i++)
+            {
+                parcelas.Add(new Parcela
+                {
+                    Valor = -valorParcelaComJuros,
+                    Data = DateTime.Now.AddMonths(i)
+                });
+            }
+
+            produto.Orcamentos.FirstOrDefault().Parcelas = parcelas;
+            
+            return produto as T;
+        }
+
+        public async Task<IList<T>> GetByConditionAsync(Expression<Func<T, bool>> expression)
+        {
+            return await repository.GetByCondition(expression).ToListAsync();
+        }
+
+        //public async Task<IList<T>> GetByConditionAsync(Expression<Func<T, bool>> expression)
+        //{
+        //    return await repository.GetByCondition(expression);
+        //}
     }
 }

@@ -81,12 +81,12 @@ namespace ServiceCore.Services
 
             ICollection<Parcela> parcelas = new List<Parcela>();
 
-            for (int i = 1; i <= orcamento.QtdParcelas; i++)
+            for (int i = 0; i < orcamento.QtdParcelas; i++)
             {
                 parcelas.Add(new Parcela
                 {
                     Valor = -valorParcelaComJuros,
-                    Data = DateTime.Now.AddMonths(i)
+                    Data = orcamento.PrimeiroVencimento.AddMonths(i)
                 });
             }
 

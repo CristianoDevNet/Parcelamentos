@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from "@angular/common/http";
+import Parcela from 'src/Models/Parcela';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,26 @@ import { HttpClient } from "@angular/common/http";
 export class ProdutoService {
 
   endPoint = "https://localhost:44390/api";
-  
+
   constructor(private http: HttpClient) { }
 
-  adicionarProduto(NomeProduto)
-  {
-    const obj = 
-    {
-      NomeProduto
-    };
+  adicionarProduto(novoProduto) {
+    console.log(novoProduto);
 
-    console.log(obj);
+    this.http.post(`${this.endPoint}/produto`, novoProduto).subscribe(res => {
+      alert('Produto cadastrado com sucesso');
+    });
+  }
 
-    this.http.post(`${this.endPoint}/produto`, obj).subscribe(res => console.log('Done'));
+  todosOsProdutos() {
+    return this.http.get(`${this.endPoint}/produto`);
+  }
+
+  carregarOrcamentos(produtoId) {
+    return this.http.get(`${this.endPoint}/orcamento/produto/${produtoId}`);
+  }
+
+  carregarParcelas(orcamentoId) {
+    return this.http.get<Parcela[]>(`${this.endPoint}/parcela/orcamento/${orcamentoId}`);
   }
 }

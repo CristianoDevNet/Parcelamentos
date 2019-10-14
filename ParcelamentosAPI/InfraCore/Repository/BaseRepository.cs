@@ -24,7 +24,7 @@ namespace InfraCore.Repository
 
         private readonly string erroRemoverBaseReplicacao = "Não foi possível remover da base de replicação";
 
-        private readonly string erroAtualizarBaseReplicacao = "Não foi possível atualizar a base de replicação";
+        //private readonly string erroAtualizarBaseReplicacao = "Não foi possível atualizar a base de replicação";
 
         public async Task AddAsync(T obj)
         {

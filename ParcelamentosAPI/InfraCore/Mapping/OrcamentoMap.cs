@@ -30,6 +30,10 @@ namespace InfraCore.Mapping
             builder.Property(c => c.QtdParcelas)
             .IsRequired()
             .HasColumnName("QtdParcelas");
+
+            builder.Property(c => c.PrimeiroVencimento)
+            .IsRequired()
+            .HasColumnName("PrimeiroVencimento");
         }
     }
 }

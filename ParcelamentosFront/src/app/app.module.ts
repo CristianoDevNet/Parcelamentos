@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import localePtBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,10 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { ProdutoService } from "./produto.service";
 
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
+registerLocaleData(localePtBr);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +33,14 @@ import { ProdutoService } from "./produto.service";
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CurrencyMaskModule
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    {
+      provide: LOCALE_ID, useValue: 'pt-BR'
+    }
   ],
   bootstrap: [AppComponent]
 })

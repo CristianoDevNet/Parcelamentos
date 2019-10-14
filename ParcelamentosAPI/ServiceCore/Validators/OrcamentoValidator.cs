@@ -16,6 +16,8 @@ namespace ServiceCore.Validators
 
         private readonly string qtdParcelasVazias = "É necessário informar a quantidade de parcelas.";
 
+        private readonly string primeiroVencimentoVazio = "É necessário informar a data do 1º vencimento.";
+
         public OrcamentoValidator()
         {
             RuleFor(c => c)
@@ -40,6 +42,10 @@ namespace ServiceCore.Validators
             RuleFor(c => c.QtdParcelas)
                 .NotEmpty().WithMessage(qtdParcelasVazias)
                 .NotNull().WithMessage(qtdParcelasVazias);
+
+            RuleFor(c => c.PrimeiroVencimento)
+                .NotEmpty().WithMessage(primeiroVencimentoVazio)
+                .NotNull().WithMessage(primeiroVencimentoVazio);
         }
     }
 }

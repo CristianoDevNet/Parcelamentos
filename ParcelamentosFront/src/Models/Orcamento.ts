@@ -13,6 +13,8 @@ export default class Orcamento
 
     QtdParcelas: number;
 
+    PrimeiroVencimento: string;
+
     Produto: Produto;
 
     Parcelas: Parcela[];

@@ -2,25 +2,23 @@
     <div class="row">
         <div class="col">
             <div class="list-group">
-                <a href="" class="list-group-item list-group-item-action active">
-                        Cras justo odio
+                <!-- <a href (click)="passTheSalt($event)" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a> -->
+                <a href *ngFor="let prod of produtos" href (click)="carregarOrcamentos($event, prod.id)" class="list-group-item list-group-item-action">
+                    {{ prod.nome }}
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
             </div>
         </div>
         <div class="col">
                 <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                            Cras justo odio
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                    <a href *ngFor="let orc of orcamentos" href (click)="carregarParcelas($event, orc.id)" class="list-group-item list-group-item-action">
+                        Preço à vista: {{ orc.valorBase }}<br/>
+                        Juros/Mês: {{ orc.jurosMes }} %<br />
+                        Parcelas: {{ orc.qtdParcelas }}
+                    </a>
                     </div>
         </div>
         <div class="col">
-            <table class="table table-bordered">
+            <table class="table table-bordered" [hidden]="!parcelas">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -29,15 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>237,54</td>
-                    <td>10/11/2019</td>
+                    <tr *ngFor="let parc of parcelas, let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ parc.valor }}</td>
+                        <td>{{ parc.data | date: 'dd/MM/yyyy' }}</td>
                     </tr>
                     <tr>
-                    <th scope="row">2</th>
-                    <td>237,54</td>
-                    <td>10/12/2019</td>
+                       <td colspan="3">Total: {{ parcelasTotal }}</td> 
                     </tr>
                 </tbody>
             </table>

@@ -1,7 +1,7 @@
-USE [teste]
+USE [Commands]
 GO
 
-/****** Object:  Table [dbo].[Orcamento]    Script Date: 10/10/2019 17:03:44 ******/
+/****** Object:  Table [dbo].[Orcamento]    Script Date: 13/10/2019 22:44:38 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,6 +13,8 @@ CREATE TABLE [dbo].[Orcamento](
 	[ProdutoId] [int] NOT NULL,
 	[ValorBase] [decimal](10, 2) NOT NULL,
 	[JurosMes] [decimal](10, 4) NOT NULL,
+	[QtdParcelas] [int] NOT NULL,
+	[DataCompra] [datetime] NOT NULL,
  CONSTRAINT [PK_Orcamento] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -22,6 +24,8 @@ GO
 
 ALTER TABLE [dbo].[Orcamento]  WITH CHECK ADD  CONSTRAINT [FK_Orcamento_Produto] FOREIGN KEY([ProdutoId])
 REFERENCES [dbo].[Produto] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
 GO
 
 ALTER TABLE [dbo].[Orcamento] CHECK CONSTRAINT [FK_Orcamento_Produto]

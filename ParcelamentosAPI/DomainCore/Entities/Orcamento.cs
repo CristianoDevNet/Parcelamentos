@@ -14,7 +14,7 @@ namespace DomainCore.Entities
 
         public int QtdParcelas { get; set; }
 
-        public DateTime PrimeiroVencimento { get; set; }
+        public DateTime DataCompra { get; set; }
 
         public Produto Produto { get; set; }
 

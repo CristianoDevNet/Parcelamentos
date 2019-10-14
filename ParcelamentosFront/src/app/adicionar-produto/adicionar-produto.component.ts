@@ -38,7 +38,7 @@ export class AdicionarProdutoComponent implements OnInit {
       ValorBase: 0,
       JurosMes: 0,
       QtdParcelas: 0,
-      PrimeiroVencimento: null,
+      DataCompra: null,
       Produto: null,
       Parcelas: null
     };
@@ -55,17 +55,17 @@ export class AdicionarProdutoComponent implements OnInit {
     })
   }
 
-  adicionarProduto(nomeProduto, valorBase, jurosMes, qtdParcelas, primeiroVencimento)
+  adicionarProduto(nomeProduto, valorBase, jurosMes, qtdParcelas, dataCompra)
   {
     this.novoProduto.Nome = nomeProduto;
 
-    this.orcamentoIntegrado.ValorBase = Number(valorBase);
+    this.orcamentoIntegrado.ValorBase = Number(valorBase.replace(".", "").replace(",", "."));
 
-    this.orcamentoIntegrado.JurosMes = Number(jurosMes.replace("%", ""));
+    this.orcamentoIntegrado.JurosMes = Number(jurosMes.replace("%", "").replace(",", "."));
 
     this.orcamentoIntegrado.QtdParcelas = Number(qtdParcelas);
 
-    this.orcamentoIntegrado.PrimeiroVencimento =  primeiroVencimento;
+    this.orcamentoIntegrado.DataCompra =  dataCompra;
 
     this.novoProduto.Orcamentos = [];
 

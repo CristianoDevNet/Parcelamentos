@@ -1,7 +1,7 @@
-USE [teste]
+USE [Commands]
 GO
 
-/****** Object:  Table [dbo].[Produto]    Script Date: 10/10/2019 17:04:15 ******/
+/****** Object:  Table [dbo].[Produto]    Script Date: 13/10/2019 22:45:06 ******/
 SET ANSI_NULLS ON
 GO
 

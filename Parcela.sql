@@ -1,7 +1,7 @@
-USE [teste]
+USE [Commands]
 GO
 
-/****** Object:  Table [dbo].[Parcela]    Script Date: 10/10/2019 17:03:58 ******/
+/****** Object:  Table [dbo].[Parcela]    Script Date: 13/10/2019 22:44:50 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -22,6 +22,8 @@ GO
 
 ALTER TABLE [dbo].[Parcela]  WITH CHECK ADD  CONSTRAINT [FK_Parcela_Orcamento] FOREIGN KEY([OrcamentoId])
 REFERENCES [dbo].[Orcamento] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
 GO
 
 ALTER TABLE [dbo].[Parcela] CHECK CONSTRAINT [FK_Parcela_Orcamento]
